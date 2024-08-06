@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import gql from "graphql-tag";
 import { graphql } from "react-apollo";
 import { Link } from "react-router";
+import query from '../queries/fetchSongs';
 
 function renderSongs(props) {
   return props.data.songs.map((song) => {
@@ -26,13 +27,13 @@ function SongLists(props) {
   );
 }
 
-const query = gql`
-  {
-    songs {
-      id
-      title
-    }
-  }
-`;
+// const query = gql`
+//   {
+//     songs {
+//       id
+//       title
+//     }
+//   }
+// `;
 
 export default graphql(query)(SongLists);
